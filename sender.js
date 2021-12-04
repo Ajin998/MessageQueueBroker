@@ -9,9 +9,9 @@ broker.connect("amqp://localhost", (err, connection) => {
     //3. Assert Queue
     const ADMIN_BOX = "ADMIN";
     const message = "Organization created in admin panel";
-    channel.assertQueue(SUPERADMIN_BOX);
+    channel.assertQueue(ADMIN_BOX);
     //3. Send to queue.
-    channel.sendToQueue(SUPERADMIN_BOX, Buffer.from(message));
+    channel.sendToQueue(ADMIN_BOX, Buffer.from(message));
     console.log(`Message:- "${message}" \nsent to queue.`);
 
     setTimeout(() => {
